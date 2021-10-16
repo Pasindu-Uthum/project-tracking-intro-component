@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap");
+
+$special: "Barlow Condensed", sans-serif;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Barlow", sans-serif;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 1;
+  .pattern {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50vh;
+    width: 50%;
+    background-color: hsl(207, 33%, 95%);
+    border-bottom-left-radius: 50px;
+  }
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  nav {
+    ul {
+      list-style-type: none;
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+      padding-top: 50px;
+      .navBar {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 150px;
+        li {
+          a {
+            display: inline-block;
+            padding: 0 10px;
+            text-decoration: none;
+            color: black;
+            font-family: $special;
+            font-weight: 700;
+            font-size: 1.2rem;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          &:nth-child(4),
+          &:nth-child(5) {
+            a {
+              color: hsl(230, 11%, 40%);
+            }
+          }
+          &:nth-child(4) {
+            a:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        #bars {
+          display: none;
+        }
+      }
+    }
+  }
+  .banner-area {
+    overflow-x: hidden;
+    display: flex;
+    .text-container {
+      text-transform: uppercase;
+      width: 50%;
+      padding-top: 150px;
+      padding-left: 150px;
+      h3 {
+        padding-bottom: 20px;
+        font-family: $special;
+        font-weight: 400;
+        letter-spacing: 2px;
+        color: hsl(230, 11%, 40%);
+        span {
+          background-color: hsl(230, 29%, 20%);
+          color: white;
+          padding: 5px 10px;
+          border-radius: 30px;
+          font-size: 1rem;
+        }
+      }
+      h1 {
+        font-size: 4rem;
+        font-family: $special;
+        font-weight: 700;
+        color: hsl(230, 29%, 20%);
+        padding-bottom: 30px;
+      }
+      p {
+        font-size: 1.2rem;
+        color: hsl(230, 11%, 40%);
+      }
+      .btn-container {
+        display: flex;
+        padding-top: 50px;
+        align-items: center;
+        button {
+          display: block;
+          padding: 10px 15px;
+          margin-right: 10px;
+          background-color: hsl(0, 100%, 68%);
+          color: white;
+          font-size: 1.2rem;
+          border: none;
+          border-radius: 10px;
+          font-family: $special;
+          text-transform: uppercase;
+          font-weight: 700;
+          letter-spacing: 2px;
+          cursor: pointer;
+          &:hover {
+            background-color: hsla(0, 100%, 68%, 0.699);
+          }
+        }
+        p {
+          font-size: 1.1rem;
+          color: hsl(231, 7%, 65%);
+          letter-spacing: 2px;
+          font-family: $special;
+        }
+      }
+    }
+    .image {
+      width: 50%;
+      padding-top: 120px;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.mobile-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  padding: 30px;
+  margin-top: 100px;
+  display: none;
+  animation: fade 0.5s;
+  .menu {
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    p {
+      padding: 10px 0;
+      font-family: $special;
+      font-weight: 700;
+      color: hsl(230, 29%, 20%);
+      font-size: 1.3rem;
+      cursor: pointer;
+      &:nth-child(3) {
+        padding-bottom: 30px;
+      }
+      &:last-child {
+        color: hsl(230, 11%, 40%);
+        padding-top: 30px;
+      }
+    }
+    hr {
+      color: lightgrey;
+      border-color: lightgrey;
+      border-width: 1px;
+    }
+  }
+}
+
+.mobile-container.open {
+  display: block;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .main-container {
+    nav {
+      ul {
+        .navBar {
+          display: block;
+          padding: 10px 50px;
+          li {
+            float: left;
+          }
+        }
+      }
+    }
+    .banner-area {
+      .text-container {
+        padding-left: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 869px) {
+  .background {
+    height: auto;
+    .pattern {
+      width: 100%;
+    }
+  }
+  .main-container {
+    position: absolute;
+    height: auto;
+    nav {
+      ul {
+        .navBar:first-child {
+          float: left;
+          width: auto;
+        }
+        .navBar {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: right;
+        }
+      }
+    }
+    .banner-area {
+      flex-direction: column;
+      .text-container,
+      .image {
+        width: 100%;
+        padding-bottom: 50px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 521px) {
+  .main-container {
+    nav {
+      ul {
+        padding: 25px 0;
+        li {
+          display: none;
+          &:last-child {
+            display: block;
+          }
+        }
+        .navBar {
+          #bars {
+            cursor: pointer;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .main-container {
+    .banner-area {
+      .text-container {
+        text-align: center;
+        padding: 100px 10px;
+        .btn-container {
+          flex-direction: column;
+          button {
+            margin-right: 0;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .image {
+        padding-top: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 292px) {
+  .main-container {
+    .banner-area {
+      .text-container {
+        h1 {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
