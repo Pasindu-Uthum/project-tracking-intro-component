@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Project tracking intro component</title>
+</head>
+
+<body>
+  <div class="background">
+    <div class="pattern"></div>
+  </div>
+
+  <div class="main-container">
+    <nav>
+      <ul>
+        <div class="navBar">
+          <li><img src="./images/logo.svg" alt="Logo"></li>
+        </div>
+        <div class="navBar">
+          <li><a href="#">PRODUCT</a></li>
+          <li><a href="#">FEATURES</a></li>
+          <li><a href="#">PRICING</a></li>
+          <li><a href="#">•</a></li>
+          <li><a href="#">LOGIN</a></li>
+          <li id="bars" data-status="off"><a href="#"><img src="./images/icon-hamburger.svg" alt="hamburder"></a></li>
+        </div>
+      </ul>
+    </nav>
+    <div class="banner-area">
+      <div class="text-container">
+        <h3><span>New</span> Monograph dashboard</h3>
+        <h1>Powerful insights into your team</h1>
+        <p style="text-transform: none;">Project planning and time tracking <br> for agile teams</p>
+        <div class="btn-container">
+          <button>Shedule a Demo</button>
+          <p>To see a review</p>
+        </div>
+      </div>
+      <div class="image">
+        <img src="./images/illustration-devices.svg" alt="Devices">
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-container">
+    <div class="menu">
+      <p>PRODUCT</p>
+      <p>FEATURES</p>
+      <p>PRICING</p>
+      <hr>
+      <p>LOGIN</p>
+    </div>
+  </div>
+
+  <script>
+    const menu = document.querySelector('.mobile-container');
+    const bars = document.getElementById('bars');
+
+    bars.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      if (bars.dataset.status === 'off') {
+        bars.innerHTML = `<a href="#"><img src="./images/icon-close.svg" alt="close"></a>`
+        bars.dataset.status = 'on'
+      } else if (bars.dataset.status === 'on') {
+        bars.innerHTML = `<a href="#"><img src="./images/icon-hamburger.svg" alt="hamburder"></a>`
+        bars.dataset.status = 'off';
+      }
+    });
+  </script>
+</body>
+
+</html>
